@@ -345,6 +345,9 @@ PRODUCT_PACKAGES += \
     OnePlusCameraService \
     OnePlusGallery
 
+# Powerhint configuration file
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
