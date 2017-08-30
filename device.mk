@@ -339,6 +339,12 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
     power.msm8998
 
+# Prebuilts
+PRODUCT_PACKAGES += \
+    OnePlusCamera \
+    OnePlusCameraService \
+    OnePlusGallery
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
