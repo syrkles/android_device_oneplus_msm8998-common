@@ -26,15 +26,11 @@
 # Inherit from oppo-common
 -include device/oppo/common/BoardConfigCommon.mk
 
-PLATFORM_PATH := device/oneplus/cheeseburger
+PLATFORM_PATH := device/oneplus/msm8998-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 BOARD_VENDOR := oneplus
-
-# Assertions
-#TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
-#TARGET_OTA_ASSERT_DEVICE := cheeseburger
 
 # we are too big to fit in
 PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
@@ -172,7 +168,6 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth/include
 BOARD_HAS_QCA_BT_ROME := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -273,7 +268,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cheeseburger
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oneplus
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # RIL
@@ -304,4 +299,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
--include vendor/oneplus/cheeseburger/BoardConfigVendor.mk
+-include vendor/oneplus/msm8998-common/BoardConfigVendor.mk
