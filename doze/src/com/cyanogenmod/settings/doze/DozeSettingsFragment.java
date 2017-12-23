@@ -18,12 +18,7 @@
 package com.cyanogenmod.settings.doze;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
@@ -50,12 +45,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.doze_settings);
-
-        SharedPreferences prefs = getActivity().getSharedPreferences("doze_settings",
-                Activity.MODE_PRIVATE);
-        if (savedInstanceState == null && !prefs.getBoolean("first_help_shown", false)) {
-            showHelp();
-        }
 
         boolean dozeEnabled = Utils.isDozeEnabled(getActivity());
 
@@ -116,34 +105,5 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mPickUpPreference.setEnabled(b);
         mHandwavePreference.setEnabled(b);
         mPocketPreference.setEnabled(b);
-    }
-
-    private static class HelpDialogFragment extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.doze_settings_help_title)
-                    .setMessage(R.string.doze_settings_help_text)
-                    .setNegativeButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    })
-                    .create();
-        }
-
-        @Override
-        public void onCancel(DialogInterface dialog) {
-            getActivity().getSharedPreferences("doze_settings", Activity.MODE_PRIVATE)
-                    .edit()
-                    .putBoolean("first_help_shown", true)
-                    .commit();
-        }
-    }
-
-    private void showHelp() {
-        HelpDialogFragment fragment = new HelpDialogFragment();
-        fragment.show(getFragmentManager(), "help_dialog");
     }
 }
