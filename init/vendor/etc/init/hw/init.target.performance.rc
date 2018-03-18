@@ -197,5 +197,9 @@ on property:sys.boot_completed=1
     # Enable Laptop Mode
     write /proc/sys/vm/laptop_mode 1
 
+    # Disable FSync
+    write /sys/module/sync/parameters/fsync_enabled N
+
+
     # Is IOP even still a thing?
     start iop
