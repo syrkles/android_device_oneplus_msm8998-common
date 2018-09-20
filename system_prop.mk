@@ -162,7 +162,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     ro.telephony.default_network=22,20 \
     telephony.lteOnCdmaDevice=1 \
-    persist.vendor.ims.dropset_feature=0
     keyguard.no_require_sim=true \
     ro.com.android.dataroaming=true \
     persist.sys.oem_smooth=1 \
